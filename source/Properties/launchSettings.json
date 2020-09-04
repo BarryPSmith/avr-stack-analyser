@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "StackAnalyser": {
+      "commandName": "Project",
+      "commandLineArgs": "--out \"D:/stackAnalysis.txt\" --detailed \"D:/StackAnalysisComplete.txt\" --source \"C:/Users/Barry_Main/SierraGliding/RemoteStation/saved/Station5_2020-09-03_13-53-01_5c13d45.S\""
+    }
+  }
+}
