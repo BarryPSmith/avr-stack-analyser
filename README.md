@@ -2,28 +2,33 @@
 A basic utility to analyse the stack of programs created with avr-gcc.
 Create an annotated disassembly of your program using avr-objdump -S, then use this utility to determine stack memory usage or analyse a stack dump.
 
-Basic usage:
+## Basic usage:
+  ```
   StackAnalyser <source file name>
+  ```
 
 Complete options:
+  ```
   StackAnalyser --source <source> --out <out> --detailed <detailed>
+  ```
  OR
+  ```
   StackAnalyser --dir <dir of source> --out <out> --detailed <detailed>
+  ```
 
-If --dir is specified, will analyse the most recent file in the directory.
-If no output is specified, output filename will be <source>_maxStacks.txt
+If `--dir` is specified, will analyse the most recent file in the directory.
+If no output is specified, output filename will be `<source>_maxStacks.txt`
 
 Basic output contains the stack with the largest memory usage from every root.
 Detailed output contains every possible stack the program can generate.
 
-------------------------------------------------------------
-Stack dump analysis:
+## Stack dump analysis:
 
 Once the utility has run, it will wait for a stack trace on the console. Pressing enter without a stack dump will exit the program.
 Stack trace is expected to be hex encoded bytes in this following format:
-Byte 1: Stack Pointer Low
-Byte 2: Stack Pointer High
-Following bytes: Stack dump
+ - Byte 0: Stack Pointer Low
+ - Byte 1: Stack Pointer High
+ - Following bytes: Stack dump
 
 Example: for a stack pointer of 2110 (0x083E), the an example input is:
 ```
@@ -46,8 +51,7 @@ All stack accounted for (193)
 
 The utility will try to figure out the stack trace at the point it was taken.
 
-------------------------------------------------------------
-Limitations
+## Limitations
 This is fairly simple right now. It understands the following operations as changing the stack:
  - Push / Pop
  - Prologue Saves / Epilogue Restores
